@@ -175,7 +175,7 @@ import Ember from 'ember';
 
 export default DS.Model.extend({
   obfuscatedIdentifier: Ember.computed('last4', function () {
-    return `**** **** **** ${this.get('last4')}`
+    return `**** **** **** ${this.get('last4')}`;
   })
 });
 ```
@@ -187,10 +187,11 @@ import Ember from 'ember';
 
 export default DS.Model.extend({
   linkedEmail: DS.attr(),
+
   obfuscatedIdentifier: Ember.computed('linkedEmail', function () {
-    const last5 = this.get('linkedEmail')
-      .split('').reverse().slice(0, 5).reverse().join('');
-    return `••••${last5}`
+    let last5 = this.get('linkedEmail').split('').reverse().slice(0, 5).reverse().join('');
+
+    return `••••${last5}`;
   })
 });
 ```
